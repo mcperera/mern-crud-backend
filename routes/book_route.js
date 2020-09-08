@@ -5,8 +5,8 @@ const bookRouter = express.Router();
 
 bookRouter.get("/", async (req, res) => {
   try {
-    const book = await Book.find();
-    res.json(book);
+    const books = await Book.find();
+    res.json(books);
   } catch (err) {
     res.json({ message: err });
   }
@@ -29,7 +29,10 @@ bookRouter.post("/", async (req, res) => {
 
 bookRouter.get("/:bookId", async (req, res) => {
   try {
-    const book = await Book.findById(req.params.bookId);
+    const book = await Book.findById(req.params.bookId).populate("author", {
+      _id: 0,
+      __v: 0,
+    });
     res.json(book);
   } catch (err) {
     res.json({ message: err });

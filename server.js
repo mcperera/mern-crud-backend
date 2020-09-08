@@ -11,8 +11,8 @@ server.use(bodyParser.json());
 const authorRoute = require("./routes/author_route");
 const bookRoute = require("./routes/book_route");
 
-server.use("/aurthors", authorRoute);
-server.use("/books", bookRoute);
+server.use("/author", authorRoute);
+server.use("/book", bookRoute);
 
 //routes
 server.get("/", (req, res) => {

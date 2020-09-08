@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const booksSchema = mongoose.Schema({
   name: {
@@ -10,9 +11,10 @@ const booksSchema = mongoose.Schema({
     require: true,
   },
   author: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: "Author",
     require: true,
   },
 });
 
-module.exports = mongoose.model("Books", booksSchema);
+module.exports = mongoose.model("Book", booksSchema);
