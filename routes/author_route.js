@@ -3,14 +3,14 @@ const Author = require("../models/author.model");
 
 const authorRouter = express.Router();
 
-authorRouter.get("/", async (req, res) => {
-  try {
-    const author = await Author.find();
-    res.json(author);
-  } catch (err) {
-    res.json({ message: err });
-  }
-});
+// authorRouter.get("/", async (req, res) => {
+//   try {
+//     const authors = await Author.find();
+//     res.json(authors);
+//   } catch (err) {
+//     res.json({ message: err });
+//   }
+// });
 
 authorRouter.post("/", async (req, res) => {
   const author = new Author({

@@ -3,14 +3,17 @@ const Book = require("../models/books.model");
 
 const bookRouter = express.Router();
 
-bookRouter.get("/", async (req, res) => {
-  try {
-    const books = await Book.find();
-    res.json(books);
-  } catch (err) {
-    res.json({ message: err });
-  }
-});
+// bookRouter.get("/", async (req, res) => {
+//   try {
+//     const books = await Book.find().populate("author", {
+//       _id: 0,
+//       __v: 0,
+//     });
+//     res.json(books);
+//   } catch (err) {
+//     res.json({ message: err });
+//   }
+// });
 
 bookRouter.post("/", async (req, res) => {
   const book = new Book({
