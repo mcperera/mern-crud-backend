@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const server = express();
 const bodyParser = require("body-parser");
+const cors = require("cors");
 require("dotenv").config({ path: "./.env" });
 
 //---------Models
@@ -9,6 +10,7 @@ const Book = require("./models/books.model");
 const Author = require("./models/author.model");
 
 //---------Middleware
+server.use(cors());
 server.use(bodyParser.json());
 
 //---------Imports routes

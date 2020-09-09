@@ -45,6 +45,7 @@ authorRouter.delete("/:authorId", async (req, res) => {
 });
 
 authorRouter.patch("/:authorId", async (req, res) => {
+  console.log(req.body);
   try {
     const updateAuthor = await Author.updateOne(
       { _id: req.params.authorId },
