@@ -49,7 +49,7 @@ authorRouter.patch("/:authorId", async (req, res) => {
   try {
     const updateAuthor = await Author.updateOne(
       { _id: req.params.authorId },
-      { $set: { firstName: req.body.firstName } }
+      { $set: { ...req.body } }
     );
     res.json(updateAuthor);
   } catch (err) {
