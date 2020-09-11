@@ -33,7 +33,6 @@ bookRouter.post("/", async (req, res) => {
 bookRouter.get("/:bookId", async (req, res) => {
   try {
     const book = await Book.findById(req.params.bookId).populate("author", {
-      _id: 0,
       __v: 0,
     });
     res.json(book);
