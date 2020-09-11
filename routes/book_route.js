@@ -54,7 +54,7 @@ bookRouter.patch("/:bookId", async (req, res) => {
   try {
     const updateBook = await Book.updateOne(
       { _id: req.params.bookId },
-      { $set: { name: req.body.name } }
+      { $set: { ...req.body } }
     );
     res.json(updateBook);
   } catch (err) {
